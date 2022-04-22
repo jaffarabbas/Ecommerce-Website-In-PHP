@@ -2,7 +2,7 @@
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick.min.css'>
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.9/slick-theme.min.css'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css" type="text/css" />
-<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
-<script src="../bootstrap/js/bootstrap.js"></script>
+<link rel="stylesheet" href="../vendor/css/style.css" type="text/css" />
+<link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css" />
+<script src="../vendor/bootstrap/js/bootstrap.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
