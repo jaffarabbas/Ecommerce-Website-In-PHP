@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,4 +60,5 @@
     <!-- header end -->
 </body>
 <?php include("jsCdn.php") ?>
+
 </html>
