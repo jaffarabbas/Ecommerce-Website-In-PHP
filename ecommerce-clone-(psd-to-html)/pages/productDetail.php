@@ -1,3 +1,21 @@
+<?php
+
+include_once("./backend/connecter.php");
+
+$id = $operations->escape_string($_GET['pid']);
+$result = $operations->getData(Queries::$getProductByPId . $id);
+
+foreach ($result as $value) {
+    $name = $value['name'];
+    $description = $value['description'];
+    $price = $value['price'];
+    $image = json_decode($value['image'], true);
+    $quantity = $value['quantity'];
+    $rating = $value['rating'];
+    $cid = $value['cid'];
+}
+?>
+
 <?php include("header.php") ?>
 
 <!-- banner start -->
@@ -18,53 +36,62 @@
 <section class="productDetialsPage">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
-                <div class="imgDiv">
-                    <div class="mainDetialImg slider slider-for">
-                        <img id="productImage" src="../vendor/images/productPic1.png" alt="product pic 1">
-                        <img src="../vendor/images/productPic2.png" alt="product pic 1">
-                        <img src="../vendor/images/productPic3.png" alt="product pic 1">
-                        <img src="../vendor/images/productPic4.png" alt="product pic 1" />
-                    </div>
-                    <div class="productMoreImages slider slider-nav">
-                        <img src="../vendor/images/productPic1.png" alt="product pic 1" />
-                        <img src="../vendor/images/productPic2.png" alt="product pic 1" />
-                        <img src="../vendor/images/productPic3.png" alt="product pic 1" />
-                        <img src="../vendor/images/productPic4.png" alt="product pic 1" />
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-6">
-                <div class="productdeitalsInfo">
-                    <h3 id="prdName" class="primaryHeading">Round Neckless</h3>
-                    <div class="rating">
-                        <ul>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                    </div>
-                    <h1 id="prdPrice" class="secondaryHeading">300 Rs</h1>
-                    <p class="primaryParagraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                    <div class="quantity">
-                        <div class="row">
-                            <p>Quantity</p>
-                            <a onclick="decrementer()">-</a>
-                            <p id="quantityInc" class="incrementer">0</p>
-                            <a onclick="incrementer()">+</a>
+            <form action="./backend/manageCart.php" method="POST">
+                <div class="col-md-6">
+                    <div class="imgDiv">
+                        <div class="mainDetialImg slider slider-for">
+                            <?php
+                            foreach ($image as $img) { ?>
+                                <img src="<?php echo $img ?>" alt="product pic 1" />
+                            <?php } ?>
+                        </div>
+                        <div class="productMoreImages slider slider-nav">
+                            <?php
+                            foreach ($image as $img) { ?>
+                                <img src="<?php echo $img ?>" alt="product pic 1" />
+                            <?php } ?>
                         </div>
                     </div>
-                    <div class="deliveryOptions">
-                        <p class="primaryParagraph"><i class="fa fa-truck-moving"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
-                        <p class="primaryParagraph"><i class="fa fa-tags"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
-                    </div>
-                    <button class="addIntoCart btnStyle">Shop Now</button>
+
                 </div>
-            </div>
+                <div class="col-md-6">
+                    <div class="productdeitalsInfo">
+                        <h3 id="prdName" class="primaryHeading"><?php echo $name ?></h3>
+                        <div class="rating">
+                            <ul>
+                                <?php
+                                for ($i = 0; $i < $rating; $i++) {
+                                    echo "<li><i class='fa fa-star'></i></li>";
+                                }
+                                ?>
+                            </ul>
+                        </div>
+                        <h1 id="prdPrice" class="secondaryHeading"><?php echo $price ?> Rs</h1>
+                        <p class="primaryParagraph"><?php echo $description ?></p>
+                        <div class="quantity">
+                            <div class="row">
+                                <p>Quantity</p>
+                                <a onclick="decrementer()">-</a>
+                                <input class="incrementer" onchange="inputValue()" type="text" id="quantityInc" name="quantity" value="0" />
+                                <!-- <p class="incrementer" id="quantityInc" name="quantity">0</p> -->
+                                <a onclick="incrementer()">+</a>
+                            </div>
+                        </div>
+                        <div class="deliveryOptions">
+                            <p class="primaryParagraph"><i class="fa fa-truck-moving"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
+                            <p class="primaryParagraph"><i class="fa fa-tags"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
+                        </div>
+                        <button name="shopNow" type="submit" class="addIntoCart btnStyle">Shop Now</button>
+                    </div>
+                    <!-- data from 
+                    4feilds -->
+                    <input type="hidden" name="pid" value="<?php echo $id ?>">
+                    <input type="hidden" name="name" value="<?php echo $name ?>">
+                    <input type="hidden" name="price" value="<?php echo $price ?>">
+                    <input type="hidden" name="cid" value="<?php echo $cid ?>">
+                    <input type="hidden" name="image" value="<?php echo $image[0] ?>">
+                </div>
+            </form>
         </div>
         <div class="detialsFooter">
             <div class="row">
