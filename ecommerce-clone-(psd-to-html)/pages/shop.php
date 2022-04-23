@@ -1,3 +1,14 @@
+<?php
+
+include_once("./backend/connecter.php");
+
+//extact data with respect to categories
+$result1 = $operations->getData(Queries::$getAllProductsByCategories . "1");
+$result2 = $operations->getData(Queries::$getAllProductsByCategories . "2");
+$result3 = $operations->getData(Queries::$getAllProductsByCategories . "3");
+
+?>
+
 <?php include("header.php") ?>
 
 <!-- banner start -->
@@ -40,30 +51,14 @@
         <div class="tab-content">
             <div id="shpprcr1" class="tab-pane fade in active">
                 <div class="row prrow">
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic1.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic2.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic3.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic4.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
+                    <?php foreach ($result1 as $keys => $value) { ?>
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <a href="productDetail.php?pid=<?php echo $value['pid']; ?>">
+                                <img src="<?php echo json_decode($value['fimage'], true) ?>" alt="product pic 1" />
+                                <p><?php echo $value['name'] . " Rs " . $value['price'] ?></p>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -82,30 +77,14 @@
             </div>
             <div id="shpprcr2" class="tab-pane fade">
                 <div class="row prrow">
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic1.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic2.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic3.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic4.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
+                    <?php foreach ($result2 as $keys => $value) { ?>
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <a href="productDetail.php?pid=<?php echo $value['pid']; ?>">
+                                <img src="<?php echo json_decode($value['fimage'], true) ?>" alt="product pic 1" />
+                                <p><?php echo $value['name'] . " Rs " . $value['price'] ?></p>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
@@ -124,30 +103,14 @@
             </div>
             <div id="shpprcr3" class="tab-pane fade">
                 <div class="row prrow">
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic1.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic2.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic3.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 col-xs-6">
-                        <a href="productDetail.php">
-                            <img src="../vendor/images/productPic4.png" alt="product pic 1" />
-                            <p>your Heading here<br />your Heading here</p>
-                        </a>
-                    </div>
+                    <?php foreach ($result3 as $keys => $value) { ?>
+                        <div class="col-md-3 col-sm-6 col-xs-6">
+                            <a href="productDetail.php?pid=<?php echo $value['pid']; ?>">
+                                <img src="<?php echo json_decode($value['fimage'], true) ?>" alt="product pic 1" />
+                                <p><?php echo $value['name'] . " Rs " . $value['price'] ?></p>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
