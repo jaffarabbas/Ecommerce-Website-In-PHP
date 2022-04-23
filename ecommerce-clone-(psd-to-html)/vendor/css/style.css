@@ -609,7 +609,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     background-size: cover;
 }
 
-.divdrow{
+.divdrow {
     padding: 0;
 }
 
@@ -618,15 +618,15 @@ footer .container .row .col-md-12 ul li a i:hover {
     padding: 0px 5% 20px 5%;
 }
 
-.bottomparagraph{
+.bottomparagraph {
     padding: 0;
 }
 
-.mainDetialImg img{
-    width: 100% !important;
+.mainDetialImg img {
+    width: 80% !important;
 }
 
-.imgDiv{
+.imgDiv {
     display: flex;
     flex-direction: column;
     height: auto;
@@ -683,7 +683,9 @@ footer .container .row .col-md-12 ul li a i:hover {
 
 .incrementer {
     border: 1px solid #333;
-    padding: 10px 30px;
+    padding: 10px 0px 10px 26px !important;
+    width: 60px !important;
+    font-weight: bold;
 }
 
 .rating ul {
@@ -716,7 +718,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     float: left;
 }
 
-.btfcol12{
+.btfcol12 {
     padding: 0;
 }
 
@@ -740,9 +742,10 @@ footer .container .row .col-md-12 ul li a i:hover {
     padding: 0px 20px;
 }
 
-.detialsFooter .row .col-md-12 a{
+.detialsFooter .row .col-md-12 a {
     margin-top: 0;
 }
+
 .productMoreImages {
     position: relative;
     margin: auto;
@@ -775,11 +778,18 @@ footer .container .row .col-md-12 ul li a i:hover {
 }
 
 .tdp i {
-    margin-bottom: 12px;
-    margin-left: 30px;
     font-size: 18px;
     color: rgb(248, 62, 62) !important;
     text-decoration: none !important;
+}
+
+.delbtn {
+    background: transparent;
+    margin-bottom: 12px;
+    margin-left: 30px;
+    margin-top: 7px;
+    padding: 0px;
+    border: none;
 }
 
 .cartPage {
@@ -814,6 +824,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     display: flex;
     width: 400px;
     align-items: center;
+    padding: 10px;
 }
 
 .cartPage .price img {
@@ -839,9 +850,12 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-right: 40px;
 }
 
-.cartQuantity p {
+.cartQuantity input {
+    background: transparent;
     font-size: 16px;
-    padding-top: 10px;
+    padding: 10px 4px 10px 14px !important;
+    border: none;
+    width: 40px !important;
 }
 
 .cartQuantity a {
@@ -854,7 +868,7 @@ footer .container .row .col-md-12 ul li a i:hover {
 }
 
 .cartfooter {
-    padding: 10px 190px 10px;
+    padding: 10px 230px 10px;
 }
 
 .cartfooter .col-md-12 {
@@ -1164,6 +1178,12 @@ footer .container .row .col-md-12 ul li a i:hover {
 
 /* terms and conditions end*/
 
+@media only screen and (min-width: 992px) and (max-width:1200px) {
+    .mainDetialImg img {
+        width: 100% !important;
+    }
+}
+
 @media only screen and (max-width: 992px) {
     .about_side_1 {
         text-align: center;
@@ -1199,21 +1219,21 @@ footer .container .row .col-md-12 ul li a i:hover {
     .checkOutprice {
         padding: 0px;
     }
-
-    .detialsFooter{
+    .detialsFooter {
         margin-top: 20%;
         padding: 0;
     }
-
-    .detialbtngrp{
+    .detialbtngrp {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
-    
-    .productDetialsPage .row .col-md-12 a{
+    .productDetialsPage .row .col-md-12 a {
         margin-right: 0;
         margin-top: 10px;
+    }
+    .cartfooter {
+        padding: 10px 60px 10px;
     }
 }
 
@@ -1282,7 +1302,7 @@ footer .container .row .col-md-12 ul li a i:hover {
     .cartfooter p {
         margin-top: 10px;
     }
-    .tdp i{
+    .tdp i {
         margin-left: 0;
     }
 }
@@ -1314,6 +1334,12 @@ footer .container .row .col-md-12 ul li a i:hover {
     }
     .shopmenu a {
         margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 527px) {
+    .mainDetialImg img {
+        width: 100% !important;
     }
 }
 
