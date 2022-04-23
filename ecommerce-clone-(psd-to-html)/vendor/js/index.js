@@ -1,16 +1,18 @@
 /*Quantity incrementer */
 var counter = 0;
 
+function inputValue() {
+    document.getElementById("quantityInc").value = counter;
+}
+
 function incrementer() {
     counter++;
-    localStorage.setItem("counter", counter);
-    document.getElementById("quantityInc").innerHTML = localStorage.getItem("counter");
+    inputValue();
 }
 
 function decrementer() {
     counter > 0 ? counter-- : counter;
-    localStorage.setItem("counter", counter);
-    document.getElementById("quantityInc").innerHTML = localStorage.getItem("counter");
+    inputValue();
 }
 
 /*product deitals img slider */
@@ -28,4 +30,3 @@ $(".slider-nav").slick({
     dots: true,
     focusOnSelect: true,
 });
-
