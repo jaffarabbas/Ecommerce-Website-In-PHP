@@ -42,14 +42,26 @@ session_start();
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="login.php">
-                            <img src="../vendor/images/userlogo.png" alt="" />
-                        </a>
+                        <?php
+                        if (isset($_SESSION['user']) && $_SESSION['user'] != "") { ?>
+                            <form action="./backend/logout.php" method="POST">
+                                <button class="logout" name="logout">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </button>
+                            </form>
+                        <?php } else { ?>
+                            <a href="login.php">
+                                <img src="../vendor/images/userlogo.png" alt="" />
+                            </a>
+                        <?php } ?>
                     </li>
                     <li>
-                        <a href="cart.php">
-                            <img src="../vendor/images/cartLogo.png" alt="" />
-                        </a>
+                        <?php
+                        if (isset($_SESSION['user']) && $_SESSION['user'] != "") { ?>
+                            <a href="cart.php">
+                                <img src="../vendor/images/cartLogo.png" alt="" />
+                            </a>
+                        <?php } ?>
                     </li>
                 </ul>
             </div>
