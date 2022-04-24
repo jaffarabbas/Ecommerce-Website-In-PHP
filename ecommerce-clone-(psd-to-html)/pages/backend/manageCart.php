@@ -28,19 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 //add new item to session array
                 $count_cart_index = count($_SESSION['cart']);
-                $_SESSION['cart'][$count_cart_index] = array('Item_id' => $_POST['pid'],'Item_Name' => $_POST['name'], 'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'],'Item_cid' => $_POST['cid']);
+                $_SESSION['cart'][$count_cart_index] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'],'Item_Description' => $_POST['description'] ,'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'],'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
                 alertMaker(true);
             }
         } else {
             //add first item to session array
-            $_SESSION['cart'][0] = array('Item_id' => $_POST['pid'],'Item_Name' => $_POST['name'], 'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'],'Item_cid' => $_POST['cid']);
+            $_SESSION['cart'][0] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'],'Item_Description' => $_POST['description'] ,'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'],'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
             alertMaker(true);
         }
     }
     //remove from cart
-    if(isset($_POST['Remove_Item'])){
-        foreach($_SESSION['cart'] as $key => $value){
-            if($value['Item_id'] == $_POST['Item_id']){
+    if (isset($_POST['Remove_Item'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value['Item_id'] == $_POST['Item_id']) {
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
                 echo "<script>
@@ -51,15 +51,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     //set quantity in session
-    if(isset($_POST['Mode_Quantity'])){
-        foreach($_SESSION['cart'] as $key => $value){
-            if($value['Item_Name'] == $_POST['Item_Name']){
-                $_SESSION['cart'][$key]['Quantity'] = $_POST['Mode_Quantity'];
+    if (isset($_POST['Mode_Quantity'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value['Item_id'] == $_POST['Item_id']) {
+                $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity'];
                 echo "<script>
                         window.location.href='../cart.php';
                      </script>";
             }
         }
+    }
+    // set session for checkout
+    if (isset($_POST['Add_to_CheckOut'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
+            $_SESSION['cart'][$key]['Item_total_Quantity'] = $_POST['grandTotalPrice'];
+        }
+        echo "<script>
+                window.location.href='../checkout.php';
+              </script>";
     }
 }
 
