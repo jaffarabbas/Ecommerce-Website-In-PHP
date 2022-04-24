@@ -7,5 +7,6 @@ class Queries{
     public static string $getAllType = "SELECT * FROM `type`";
     public static string $checkSameEmail = "SELECT * FROM users WHERE email = ";
     public static string $insertUser = "INSERT INTO users (firstname, lastname, email, password, actype, type) VALUES (?,?,?,?,?,?)";
+    public static string $getUser = "SELECT * FROM users WHERE email= ? AND password=?";
 }
 ?>
