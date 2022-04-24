@@ -78,6 +78,17 @@
     border-right: none;
 }
 
+.logout {
+    background: none;
+    border: none;
+    margin-top: 13px;
+}
+
+.logout i {
+    color: #b0a171;
+    font-size: 25px;
+}
+
 
 /* .nav.navbar-nav .navbar-right ul li a{
   border: none !important;
