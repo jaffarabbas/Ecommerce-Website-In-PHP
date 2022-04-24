@@ -7,6 +7,7 @@ $result1 = $operations->getData(Queries::$getAllProductsByCategories . "1");
 $result2 = $operations->getData(Queries::$getAllProductsByCategories . "2");
 $result3 = $operations->getData(Queries::$getAllProductsByCategories . "3");
 
+
 ?>
 
 <?php include("header.php") ?>
