@@ -72,7 +72,7 @@ foreach ($result as $value) {
                             <div class="row">
                                 <p>Quantity</p>
                                 <a onclick="decrementer()">-</a>
-                                <input class="incrementer" onchange="inputValue()" type="text" id="quantityInc" name="quantity" value="0" />
+                                <input class="incrementer" onchange="inputValue()" type="text" id="quantityInc" name="quantity" value="1" />
                                 <!-- <p class="incrementer" id="quantityInc" name="quantity">0</p> -->
                                 <a onclick="incrementer()">+</a>
                             </div>
@@ -83,10 +83,10 @@ foreach ($result as $value) {
                         </div>
                         <button name="shopNow" type="submit" class="addIntoCart btnStyle">Shop Now</button>
                     </div>
-                    <!-- data from 
-                    4feilds -->
+                    <!-- data from feilds -->
                     <input type="hidden" name="pid" value="<?php echo $id ?>">
                     <input type="hidden" name="name" value="<?php echo $name ?>">
+                    <input type="hidden" name="description" value="<?php echo $description ?>">
                     <input type="hidden" name="price" value="<?php echo $price ?>">
                     <input type="hidden" name="cid" value="<?php echo $cid ?>">
                     <input type="hidden" name="image" value="<?php echo $image[0] ?>">
