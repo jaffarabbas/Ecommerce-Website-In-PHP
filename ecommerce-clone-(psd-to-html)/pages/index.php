@@ -1,4 +1,4 @@
-<?php include("header.php") ?>
+<?php include("header.php");?>
 <!-- banner start -->
 <section class="banner">
     <div id="productCarousel" class="carousel slide" data-ride="carousel">
@@ -65,7 +65,12 @@
     </div>
 </section>
 <!-- banner end -->
-
+<?php 
+if(isset($_SESSION['success']) && $_SESSION['success'] != ""){
+    echo $_SESSION['success'];
+    unset($_SESSION['success']);
+}
+?>
 <!-- about start -->
 <section class="about">
     <div class="container">
