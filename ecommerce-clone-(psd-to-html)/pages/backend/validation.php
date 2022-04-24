@@ -58,4 +58,8 @@ class Validation
 	{
 		return $password == $repassword ? true : false;
 	}
+
+	public function decryptPassowrd($password,$hasedpassowrd){
+		return password_verify($password,$hasedpassowrd);
+	}
 }
