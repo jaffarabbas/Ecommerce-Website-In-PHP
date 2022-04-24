@@ -6,13 +6,13 @@ $validation = new Validation();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['submit'])) {
-        $firstname = $operations->escape_string($_POST['firstname']);
-        $lastname = $operations->escape_string($_POST['lastname']);
-        $email = $operations->escape_string($_POST['email']);
-        $passowrd = $operations->escape_string($_POST['passowrd']);
-        $repassword = $operations->escape_string($_POST['repassword']);
-        $actype = $operations->escape_string($_POST['actype']);
-        $type = $operations->escape_string($_POST['type']);
+        $firstname = $validation->validate($operations->escape_string($_POST['firstname']));
+        $lastname = $validation->validate($operations->escape_string($_POST['lastname']));
+        $email = $validation->validate($operations->escape_string($_POST['email']));
+        $passowrd = $validation->validate($operations->escape_string($_POST['passowrd']));
+        $repassword = $validation->validate($operations->escape_string($_POST['repassword']));
+        $actype = $validation->validate($operations->escape_string($_POST['actype']));
+        $type = $validation->validate($operations->escape_string($_POST['type']));
 
         $checkFeilds = $validation->checkEmpty($_POST, array('actype', 'email', 'passowrd', 'repassword', 'firstname', 'lastname', 'type'));
         $checkEmail = $validation->isEmailValid($email);
