@@ -29,16 +29,25 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12">
+                        <?php
+                            if (isset($_SESSION['error']) && $_SESSION['error'] != "") {
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                            } elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
+                                echo $_SESSION['success'];
+                                unset($_SESSION['success']);
+                            }
+                        ?>
                         <div class="maincontactfeilds">
-                            <form>
-                                <input class="contactInput" type="text" placeholder="Please enter your name"><br>
-                                <input class="contactInput" type="email" placeholder="Please enter your email address"></br>
+                            <form action="./backend/contact_backend.php" method="POST"> 
+                                <input name="name" class="contactInput" type="text" placeholder="Please enter your name"><br>
+                                <input name="email" class="contactInput" type="email" placeholder="Please enter your email address"></br>
                                 <div class="minicontactfeilds">
-                                    <input class="minicontactInput" type="text" placeholder="Please enter your phone">
-                                    <input class="minicontactInput" type="text" placeholder="Please enter your address">
+                                    <input name="phone" class="minicontactInput" type="text" placeholder="Please enter your phone">
+                                    <input name="address" class="minicontactInput" type="text" placeholder="Please enter your address">
                                 </div>
-                                <textarea class="contactInput" placeholder="Please enter your Message" name="" rows="3"></textarea><br>
-                                <input type="submit" class="btnStyle" value="Subscribe">
+                                <textarea name="message" class="contactInput" placeholder="Please enter your Message" name="" rows="3"></textarea><br>
+                                <input name="submit" type="submit" class="btnStyle" value="Subscribe">
                             </form>
                         </div>
                     </div>
