@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['Remove_Item'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['Item_id'] == $_POST['Item_id']) {
+
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
                 echo "<script>
@@ -57,6 +58,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity'];
                 echo "<script>
                         window.location.href='../cart.php';
+                     </script>";
+            }
+        }
+    }
+    if (isset($_POST['Mode_Quantity_CheckOut'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value['Item_id'] == $_POST['Item_id']) {
+                $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity_CheckOut'];
+                echo "<script>
+                        window.location.href='../checkout.php';
                      </script>";
             }
         }
