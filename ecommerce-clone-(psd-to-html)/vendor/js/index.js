@@ -1,30 +1,39 @@
 /*Quantity incrementer */
 var counter = 1;
 
-function inputValue() {
-    document.getElementById("quantityInc").value = counter;
+function formSubmit(id) {
+    document.getElementById(id).submit();
+}
+
+function inputValue(id) {
+    console.log(id);
+    document.getElementById("quantityInc_" + id).value = counter;
 }
 
 //set counter value through out the website
-function checkCounter() {
-    var val = document.getElementById("quantityInc").value;
+function checkCounter(id) {
+    var val = document.getElementById("quantityInc_" + id).value;
     val > 0 ? counter = val : counter = 0;
 }
 
-function incrementer() {
-    checkCounter();
+function incrementer(id) {
+    checkCounter(id);
     counter++;
-    inputValue();
+    inputValue(id);
     //update total price
     subTotal();
+    formSubmit("quantityForm");
+    formSubmit("quantityFormCheckout");
 }
 
-function decrementer() {
-    checkCounter();
+function decrementer(id) {
+    checkCounter(id);
     counter > 0 ? counter-- : counter;
-    inputValue();
-    //update total price
+    inputValue(id);
     subTotal();
+    //update total price
+    formSubmit("quantityForm");
+    formSubmit("quantityFormCheckout");
 }
 
 /*product deitals img slider */
