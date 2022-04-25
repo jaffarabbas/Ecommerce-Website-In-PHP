@@ -5,6 +5,7 @@ $id = $operations->escape_string($_GET['pid']);
 $result = $operations->getData(Queries::$getProductByPId . $id);
 
 foreach ($result as $value) {
+    $id = $value['pid'];
     $name = $value['name'];
     $description = $value['description'];
     $price = $value['price'];
@@ -70,10 +71,10 @@ foreach ($result as $value) {
                         <div class="quantity">
                             <div class="row">
                                 <p>Quantity</p>
-                                <a onclick="decrementer()">-</a>
-                                <input class="incrementer" onchange="inputValue()" type="text" id="quantityInc" name="quantity" value="1" />
+                                <a onclick="decrementer(<?php echo $id ?>)">-</a>
+                                <input class="incrementer" onchange="inputValue()" type="text" id="quantityInc_<?php echo $id ?>" name="quantity" value="1" />
                                 <!-- <p class="incrementer" id="quantityInc" name="quantity">0</p> -->
-                                <a onclick="incrementer()">+</a>
+                                <a onclick="incrementer(<?php echo $id ?>)">+</a>
                             </div>
                         </div>
                         <div class="deliveryOptions">
