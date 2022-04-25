@@ -1,6 +1,6 @@
 <?php
 include_once("./backend/connecter.php");
-
+// if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
 //extact data with respect to categories
 $result = $operations->getData(Queries::$getTaxtFromSetting);
 
@@ -9,7 +9,7 @@ foreach ($result as $value) {
 }
 ?>
 
-<?php include("header.php");?>
+<?php include("header.php"); ?>
 
 <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0) { ?>
     <!-- banner start -->
@@ -58,11 +58,11 @@ foreach ($result as $value) {
                                 </div>
                                 <div class="checkOutprice col-md-6">
                                     <div class="cartQuantity">
-                                        <form action='./backend/manageCart.php' method='POST'>
-                                            <a onclick="decrementer()">-</a>
-                                            <input id="quantityInc" class="iquantity" type="number" name='Mode_Quantity' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
+                                        <form id="quantityFormCheckout" action='./backend/manageCart.php' method='POST'>
+                                            <!-- <a onclick="decrementer(<?php echo $value['Item_id'] ?>)">-</a> -->
+                                            <input id="quantityInc_<?php echo $value['Item_id'] ?>" class="iquantity" type="number" name='Mode_Quantity_CheckOut' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
                                             <input type='hidden' name='Item_id' value='<?php echo $value['Item_id'] ?>' />
-                                            <a onclick="incrementer()">+</a>
+                                            <!-- <a onclick="incrementer(<?php echo $value['Item_id'] ?>)">+</a> -->
                                         </form>
                                     </div>
                                     <div class="money">
@@ -124,7 +124,7 @@ foreach ($result as $value) {
                                         <div class="th">Total</div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="th2"><?php echo $value['Item_total_Quantity'] + $tax ?> Rs</div>
+                                        <div class="th2"><?php echo floatval($value['Item_total_Quantity']) + floatval($tax) ?> Rs</div>
                                     </div>
                                 </div>
                                 <div class="chr row">
@@ -147,6 +147,7 @@ foreach ($result as $value) {
     <!-- product end -->
 
     <?php include("footer.php") ?>
+    <script src="../vendor/js/cartSession.js"></script>
 <?php } else {
     echo "
     <script>
@@ -154,3 +155,12 @@ foreach ($result as $value) {
         window.location.href='shop.php';
     </script>";
 } ?>
+<!-- 
+<?php
+//} else {
+// echo "
+// <script>
+//     window.location.href='login.php';
+// </script>";
+//}
+?> -->
