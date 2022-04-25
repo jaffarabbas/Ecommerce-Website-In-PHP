@@ -14,7 +14,6 @@ function subTotal() {
 
 subTotal();
 
-
 function getPriceValues() {
     var price = document.getElementById('ctprice');
     var total = document.getElementById('grandTotal');
