@@ -59,7 +59,13 @@ class Validation
 		return $password == $repassword ? true : false;
 	}
 
-	public function decryptPassowrd($password,$hasedpassowrd){
+	public function isNumber($number)
+	{
+		return preg_match('~[0-9]+~', $number) && strlen($number) == 11? true : false;
+	}
+
+	public function decryptPassowrd($password,$hasedpassowrd)
+	{
 		return password_verify($password,$hasedpassowrd);
 	}
 }
