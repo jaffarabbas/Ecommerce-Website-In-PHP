@@ -58,11 +58,11 @@ foreach ($result as $value) {
                                 </div>
                                 <div class="checkOutprice col-md-6">
                                     <div class="cartQuantity">
-                                        <form id="quantityFormCheckout" action='./backend/manageCart.php' method='POST'>
-                                            <!-- <a onclick="decrementer(<?php echo $value['Item_id'] ?>)">-</a> -->
-                                            <input id="quantityInc_<?php echo $value['Item_id'] ?>" class="iquantity" type="number" name='Mode_Quantity_CheckOut' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
+                                        <form id="quantityForm1" action='./backend/manageCart.php' method='POST'>
+                                            <a onclick="decrementer(<?php echo $value['Item_id'] ?>)">-</a>
+                                            <input id="quantityInc_<?php echo $value['Item_id'] ?>" class="iquantity" type="number" name='Mode_Quantity_Check_Out' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
                                             <input type='hidden' name='Item_id' value='<?php echo $value['Item_id'] ?>' />
-                                            <!-- <a onclick="incrementer(<?php echo $value['Item_id'] ?>)">+</a> -->
+                                            <a onclick="incrementer(<?php echo $value['Item_id'] ?>)">+</a>
                                         </form>
                                     </div>
                                     <div class="money">
@@ -145,9 +145,9 @@ foreach ($result as $value) {
         </div>
     </section>
     <!-- product end -->
-
+    <!-- <script src="../vendor/js/cartSession.js"></script>
+    <script src="../vendor/js/index.js"></script> -->
     <?php include("footer.php") ?>
-    <script src="../vendor/js/cartSession.js"></script>
 <?php } else {
     echo "
     <script>
