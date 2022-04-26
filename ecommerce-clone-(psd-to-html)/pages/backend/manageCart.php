@@ -62,10 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
-    if (isset($_POST['Mode_Quantity_CheckOut'])) {
+    if (isset($_POST['Mode_Quantity_Check_Out'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['Item_id'] == $_POST['Item_id']) {
-                $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity_CheckOut'];
+                $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity_Check_Out'];
+                foreach ($_SESSION['cart'] as $key => $value) {
+                    $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
+                    // $_SESSION['cart'][$key]['Item_total_Quantity'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
+                }
                 echo "<script>
                         window.location.href='../checkout.php';
                      </script>";
