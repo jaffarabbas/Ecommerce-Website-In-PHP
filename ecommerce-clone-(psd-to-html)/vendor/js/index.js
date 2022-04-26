@@ -2,41 +2,45 @@
 var counter = 1;
 
 function formSubmit(id) {
+    // console.log("formSubmit" + id);
     document.getElementById(id).submit();
 }
 
 function inputValue(id) {
-    console.log(id);
+    // console.log("inputValue" + id);
+    // console.log(id);
     document.getElementById("quantityInc_" + id).value = counter;
 }
 
 //set counter value through out the website
 function checkCounter(id) {
+    // console.log("checkCounter" + id);
     var val = document.getElementById("quantityInc_" + id).value;
     val > 0 ? counter = val : counter = 0;
+    // console.log(counter);
 }
 
 function incrementer(id) {
+    // console.log("sadasd" + id);
     checkCounter(id);
     counter++;
     inputValue(id);
     //update total price
     subTotal();
     formSubmit("quantityForm");
-    formSubmit("quantityFormCheckout");
 }
 
 function decrementer(id) {
     checkCounter(id);
     counter > 0 ? counter-- : counter;
     inputValue(id);
-    subTotal();
     //update total price
+    subTotal();
     formSubmit("quantityForm");
-    formSubmit("quantityFormCheckout");
 }
 
 /*product deitals img slider */
+// function silder() {
 $(".slider-for").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -51,3 +55,6 @@ $(".slider-nav").slick({
     dots: true,
     focusOnSelect: true,
 });
+// }
+
+// silder();
