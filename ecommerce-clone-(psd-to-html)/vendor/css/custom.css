@@ -64,9 +64,27 @@ p {
     padding-top: 20px;
 }
 
-.logoutbtn a {
+.logoutbtn form button {
     background-color: #b0a171 !important;
     color: #fff;
+}
+
+.btnStyle {
+    color: #fff !important;
+    background-color: #b0a171;
+    padding: 10px 20px;
+    margin-top: 10px;
+    position: absolute;
+    border: none;
+    text-decoration: none !important;
+}
+
+.btnStyle:hover {
+    background-color: transparent !important;
+    color: #b0a171 !important;
+    border: 2px solid #b0a171;
+    padding: 10px 20px;
+    text-decoration: none !important;
 }
 
 
