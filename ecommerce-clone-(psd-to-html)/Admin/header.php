@@ -31,7 +31,9 @@
                 <a class="navbar-brand" href="index.html">ADMIN</a>
             </div>
             <div class="logoutbtn">
-                <a href="logout.php" class="btn square-btn-adjust">Logout</a>
+                <form action="./backend/logout.php" method="POST">
+                    <button name="logout" href="logout.php" class="btn square-btn-adjust">Logout</button>
+                </form>
             </div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -39,26 +41,25 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li class="text-center">
-                        <img src='../vendor/images/admin.jpg' class='user-image img-responsive' style=' border-radius: 50%;' />
-
+                        <img src='<?php echo $_SESSION['admin'][0]['image'] ?>' class='user-image img-responsive' style=' border-radius: 50%;' />
                     </li>
                     <li>
                         <a class="active-menu"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a><i class="fa fa-book fa-3x"></i>Insert Major<span class="fa arrow"></span></a>
+                        <a href="insert_products.php"><i class="fa fa-shopping-cart fa-3x"></i>Insert Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-question fa-3x"></i>View Questions<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-table fa-3x"></i>View Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-user fa-3x"></i>Major View<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-user fa-3x"></i>View Orders<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-lock fa-3x"></i>Result<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-inbox fa-3x"></i>View Contact<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-inbox fa-3x"></i>Message<span class="fa arrow"></span></a>
+                        <a><i class="fa fa-globe fa-3x"></i>Settings<span class="fa arrow"></span></a>
                     </li>
                 </ul>
             </div>
