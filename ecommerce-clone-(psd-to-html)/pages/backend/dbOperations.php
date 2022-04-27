@@ -55,6 +55,10 @@ class DbOperations extends DbConnection
 	{
 		return mysqli_prepare($this->connection, $query);
 	}
+
+	public function prepareStatement($query){
+		return $this->connection->prepare($query);
+	}
 	
 	public function escape_string($value)
 	{
