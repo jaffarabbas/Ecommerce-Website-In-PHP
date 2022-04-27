@@ -13,9 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['error'] = Component::dangerAlert("validation Message", "Please fill all Feilds");
                 Component::navigator("../login.php");
             } else {
-                // $statement = $operations->queryStatement(Queries::$getAdmin);
                 $statement = $operations->prepareStatement(Queries::$getAdmin);
-                // print_r($statement);
                 $statement->bind_param("ss", $name, $pass);
                 $statement->execute();
                 $result = $statement->get_result();
