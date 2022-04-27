@@ -1,49 +1,30 @@
-<?php 
-session_start(); 
-include "db_conn.php";
+<!DOCTYPE html>
+<html>
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
+<head>
+	<title>LOGIN</title>
+	<link rel="stylesheet" type="text/css" href="../vendor/css/adminStyle.css">
 
-	function validate($data){
-       $data = trim($data);
-	   $data = stripslashes($data);
-	   $data = htmlspecialchars($data);
-	   return $data;
-	}
+	<link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+</head>
 
-	$uname = validate($_POST['username']);
-	$pass = validate($_POST['password']);
+<body>
+	<div>
+		<p Id="FAJ_LOGO">PERL JEWL ADMIN SYSTEM</p>
+	</div>
+	<form action="./backend/login_backend.php" method="post">
+		<h2>LOGIN</h2>
+		<?php if (isset($_GET['error'])) { ?>
+			<p class="error"><?php echo $_GET['error']; ?></p>
+		<?php } ?>
+		<label>User Name</label>
+		<input type="text" name="name" placeholder="User Name"><br>
 
-	if (empty($uname)) {
-		header("Location: login_page.php?error=User Name is required");
-	    exit();
-	}else if(empty($pass)){
-        header("Location: login_page.php?error=Password is required");
-	    exit();
-	}else{
-		$sql = "SELECT * FROM admin WHERE username='$uname' AND password='$pass'";
+		<label>Password</label>
+		<input type="password" name="password" placeholder="Password"><br>
 
-		$result = mysqli_query($conn, $sql);
+		<button name="login" type="submit">Login</button>
+	</form>
+</body>
 
-		if (mysqli_num_rows($result) === 1) {
-			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
-            	//$_SESSION['name'] = $row['name'];
-            	$_SESSION['id'] = $row['id'];
-            	header("Location: Admin_pannel.php");
-		        exit();
-            }else{
-				header("Location: login_page.php?error=Incorect User name or password");
-		        exit();
-			}
-		}else{
-			header("Location: login_page.php?error=Incorect User name or password");
-	        exit();
-		}
-	}
-	
-}else{
-	header("Location: login_page.php");
-	exit();
-}
+</html>
