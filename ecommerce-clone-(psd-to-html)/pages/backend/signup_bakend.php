@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 Component::navigator("../signup.php");
             } else {
                 if (filter_has_var(INPUT_POST, 'termCheck')) {
-                    $password = password_hash($passowrd, PASSWORD_DEFAULT);
+                    // $password = password_hash($passowrd, PASSWORD_DEFAULT);
                     $statement = $operations->queryStatement(Queries::$insertUser);
                     if ($statement) {
                         mysqli_stmt_bind_param($statement, "ssssss", $firstname, $lastname, $email, $password, $actype, $type);
