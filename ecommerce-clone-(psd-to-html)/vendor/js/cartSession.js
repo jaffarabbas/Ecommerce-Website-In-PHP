@@ -4,7 +4,6 @@ var itotal = document.getElementsByClassName('totalPriceCart');
 var grandTotal = document.getElementById('grandTotal');
 
 function subTotal() {
-    console.log("sdf");
     var grandTotalValue = 0;
     for (i = 0; i < iprice.length; i++) {
         itotal[i].innerText = (iprice[i].value * iquantity[i].value);
