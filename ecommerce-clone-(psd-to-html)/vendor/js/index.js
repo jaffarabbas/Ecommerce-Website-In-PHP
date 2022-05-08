@@ -3,18 +3,18 @@ var counter = 1;
 
 function formSubmit(id) {
     // console.log("formSubmit" + id);
-    document.getElementById(id).submit();
+    document.getElementById(quantityForm).submit();
 }
 
 function inputValue(id) {
-    // console.log("inputValue" + id);
+    console.log("inputValue" + id);
     // console.log(id);
     document.getElementById("quantityInc_" + id).value = counter;
 }
 
 //set counter value through out the website
 function checkCounter(id) {
-    // console.log("checkCounter" + id);
+    console.log("checkCounter" + id);
     var val = document.getElementById("quantityInc_" + id).value;
     val > 0 ? counter = val : counter = 0;
     // console.log(counter);
@@ -27,7 +27,7 @@ function incrementer(id) {
     inputValue(id);
     //update total price
     subTotal();
-    formSubmit("quantityForm");
+    document.getElementsByClassName("quantityCounter").submit();
 }
 
 function decrementer(id) {
@@ -36,7 +36,7 @@ function decrementer(id) {
     inputValue(id);
     //update total price
     subTotal();
-    formSubmit("quantityForm");
+    document.getElementsByClassName(".quantityCounter")[0].submit();
 }
 
 /*product deitals img slider */
