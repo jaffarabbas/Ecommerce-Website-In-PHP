@@ -35,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 }
             }
         } else {
-            print_r("ss5");
+            $_SESSION['error'] = Component::dangerAlert("validation Message", "Something went wrong");
+            Component::navigator("../login.php");
         }
     }
 }
