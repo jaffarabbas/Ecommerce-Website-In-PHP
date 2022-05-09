@@ -27,7 +27,7 @@ function incrementer(id) {
     inputValue(id);
     //update total price
     subTotal();
-    document.getElementsByClassName("quantityCounter").submit();
+    document.getElementById("quantityForm_" + id).submit();
 }
 
 function decrementer(id) {
@@ -36,7 +36,7 @@ function decrementer(id) {
     inputValue(id);
     //update total price
     subTotal();
-    document.getElementsByClassName(".quantityCounter")[0].submit();
+    document.getElementById("quantityForm_" + id).submit();
 }
 
 /*product deitals img slider */
