@@ -3,7 +3,6 @@ include_once("./backend/connecter.php");
 // if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
 //extact data with respect to categories
 $result = $operations->getData(Queries::$getTaxtFromSetting);
-
 foreach ($result as $value) {
     $tax = $value['TAX'];
 }
@@ -45,11 +44,11 @@ foreach ($result as $value) {
                 <div class="col-md-12">
                     <?php
                     if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $value) { ?>
+                        foreach ($_SESSION['cart'] as $key => $value) { print_r($value)?>
                             <div class="checkOutRow row">
                                 <div class="col-md-6">
                                     <div class="checkOutinfo">
-                                        <img src="<?php echo $value['Item_Image'] ?>    " alt="product pic 1" />
+                                        <img src="<?php echo $value['Item_Image'] ?>" alt="product pic 1" />
                                         <div>
                                             <p class="primaryHeading"><?php echo $value['Item_Name'] ?></p>
                                             <p class="secondaryHeading"><?php echo $value['Item_Description'] ?></p>
@@ -58,7 +57,7 @@ foreach ($result as $value) {
                                 </div>
                                 <div class="checkOutprice col-md-6">
                                     <div class="cartQuantity">
-                                        <form id="quantityForm1" action='./backend/manageCart.php' method='POST'>
+                                        <form id="quantityForm_<?php echo $value['Item_id'] ?>" action='./backend/manageCart.php' method='POST'>
                                             <a onclick="decrementer(<?php echo $value['Item_id'] ?>)">-</a>
                                             <input id="quantityInc_<?php echo $value['Item_id'] ?>" class="iquantity" type="number" name='Mode_Quantity_Check_Out' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
                                             <input type='hidden' name='Item_id' value='<?php echo $value['Item_id'] ?>' />
