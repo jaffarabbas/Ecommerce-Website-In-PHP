@@ -110,7 +110,7 @@ if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
                                                     </td>
                                                     <td>
                                                         <div class="cartQuantity">
-                                                            <form id="quantityForm" class="quantityCounter" action='./backend/manageCart.php' method='POST'>
+                                                            <form id="quantityForm_<?php echo $value['Item_id'] ?>" class="quantityCounter" action='./backend/manageCart.php' method='POST'>
                                                                 <a onclick="decrementer(<?php echo $value['Item_id'] ?>)">-</a>
                                                                 <input id="quantityInc_<?php echo $value['Item_id'] ?>" class="iquantity" type="number" name='Mode_Quantity' onchange='this.form.submit();' value='<?php echo $value['Item_Quantity'] ?>' />
                                                                 <input type='hidden' name='Item_id' value='<?php echo $value['Item_id'] ?>' />
