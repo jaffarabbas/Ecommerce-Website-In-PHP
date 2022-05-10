@@ -66,13 +66,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['Item_id'] == $_POST['Item_id']) {
                 $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity_Check_Out'];
-                $var = end($_SESSION['cart']['Item_total_Quantity']);
                 foreach ($_SESSION['cart'] as $key => $value) {
                     $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
                     // $_SESSION['cart'][$key]['Item_total_Quantity'] = 0;
-                    $var += $_SESSION['cart'][$key]['Item_total_Price'];
                 }
-                $_SESSION['cart']['Item_total_Quantity'] = $var;
                 echo "<script>
                         window.location.href='../checkout.php';
                      </script>";
