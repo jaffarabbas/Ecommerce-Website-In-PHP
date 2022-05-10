@@ -120,8 +120,6 @@ if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
                                                     </td>
                                                     <td>
                                                         <p id="ctprice" class="totalPriceCart"></p>
-                                                        <!-- <form action='./backend/manageCart.php' method='POST'> -->
-                                                        <!-- </form> -->
                                                     </td>
                                                     <td class="tdp">
                                                         <form action='./backend/manageCart.php' method='POST'>
