@@ -2,7 +2,7 @@
 include_once("./backend/connecter.php");
 // if (isset($_SESSION['user']) && $_SESSION['user'] != "") {
 //extact data with respect to categories
-$result = $operations->getData(Queries::$getTaxtFromSetting);
+$result = $operations->getData(Queries::$getTextFromSetting);
 foreach ($result as $value) {
     $tax = $value['TAX'];
 }
@@ -65,8 +65,8 @@ foreach ($result as $value) {
                                         </form>
                                     </div>
                                     <div class="money">
-                                        <p><?php echo $value['Item_Price'] ?> Rs</p>
-                                        <p><?php echo $value['Item_total_Price'] ?> Rs</p>
+                                        <p><?php echo $value['Item_Price'] ?> Rs</p><input type='hidden' class='iprice' value='<?php echo $value['Item_Price'] ?>'/>
+                                        <p id="ctprice" class="totalPriceCart"></p>
                                     </div>
                                     <div class="dfco">
                                         <form action='./backend/manageCart.php' method='POST'>
@@ -109,8 +109,10 @@ foreach ($result as $value) {
                                         <div class="th">Tax</div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="th2"><?php echo $value['Item_total_Quantity'] ?> Rs</div>
-                                        <div class="th2"><?php echo $tax ?> Rs</div>
+                                    <p id="grandTotal"></p>
+                                    <input type="hidden" id="gtprice" name="grandTotalPrice">
+                                    <input type="hidden" id="tprice" name="totalPricePerItem">
+                                    <div class="th2"><?php echo $tax ?> Rs</div>
                                     </div>
                                 </div>
                                 <div class="row">
