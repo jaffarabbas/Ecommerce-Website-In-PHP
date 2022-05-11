@@ -9,7 +9,7 @@ function subTotal() {
         itotal[i].innerText = (iprice[i].value * iquantity[i].value);
         grandTotalValue += parseInt(itotal[i].innerText);
     }
-    grandTotal.innerText = grandTotalValue;
+    grandTotal.innerText = grandTotalValue + " Rs";
 }
 
 subTotal();
@@ -17,8 +17,12 @@ subTotal();
 function getPriceValues() {
     var price = document.getElementById('ctprice');
     var total = document.getElementById('grandTotal');
+    var totalPiceWithTax = document.getElementById("totalPriceWithTax");
     var tprice = document.getElementById("tprice");
     var gtotal = document.getElementById("gtprice");
+    var totalPriceWithTaxPicker = document.getElementById("totalPriceWithTaxPicker");
+
+    totalPiceWithTax.innerHTML = parseFloat(totalPriceWithTaxPicker.value) + parseFloat(total.innerHTML) + " Rs";
     tprice.value = price.innerHTML;
     gtotal.value = total.innerHTML;
 }
