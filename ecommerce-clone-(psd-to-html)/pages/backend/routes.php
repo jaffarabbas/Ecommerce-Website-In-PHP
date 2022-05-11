@@ -10,6 +10,7 @@ class Routes{
     public static string $contactPage = "contact.php";
     public static string $aboutPage = "about.php";
     public static string $productDetailsPage = "productDetails.php";
+    public static string $cartPage = "cart.php";
     //reusable pages
     public static string $headerPage = "header.php";
     public static string $footerPage = "footer.php";
@@ -25,12 +26,20 @@ class Routes{
     public static string $validation = "backend/validation.php";
     public static string $methods = "backend/methods.php";
     public static string $manageCart = "backend/manageCart.php";
-    public static string $loginBakend = "backend/login_backend.php";
-    public static string $signupBakend = "backend/signup_backend.php";
+    public static string $loginBackend = "backend/login_backend.php";
+    public static string $signupBackend = "backend/signup_backend.php";
     public static string $contactBackend = "backend/contact_backend.php";
 
     //route parameters
-    public static string $parameter = "";
+    public static string $parameterSingleDot = "./";
+    public static string $parameterDoubleDot = "../";
+    public static string $parameterFromPage = "page";
+    public static string $parameterFromAdmin = "Admin";
+    public static string $parameterFromVendor = "vendor";
+
+    public static function LinkMaker($parameter,$route){
+        return $parameter.$route;
+    }
 }
 
 ?>
