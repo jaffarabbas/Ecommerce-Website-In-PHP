@@ -125,7 +125,8 @@ foreach ($result as $value) {
                                         <div class="th">Total</div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="th2"><?php echo floatval($value['Item_total_Quantity']) + floatval($tax) ?> Rs</div>
+                                        <div id="totalPriceWithTax" class="th2"></div>
+                                        <input type="hidden" value="<?php echo $tax ?>" id="totalPriceWithTaxPicker">
                                     </div>
                                 </div>
                                 <div class="chr row">
