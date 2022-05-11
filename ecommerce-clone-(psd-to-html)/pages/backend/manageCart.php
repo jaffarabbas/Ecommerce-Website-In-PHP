@@ -1,21 +1,22 @@
 <!-- cart code -->
 <?php
 session_start();
-function alertMaker($flag)
-{
-    if ($flag) {
-        echo "<script>
-                alert('Added to cart');
-                window.location.href='../cart.php';
-             </script>";
-    } else {
-        echo "
-        <script>
-            alert('Item is already added in the cart');
-            window.location.href='../shop.php';
-        </script>";
-    }
-}
+include("./methods.php");
+// function alertMaker($flag)
+// {
+//     if ($flag) {
+//         echo "<script>
+//                 alert('Added to cart');
+//                 window.location.href='../cart.php';
+//              </script>";
+//     } else {
+//         echo "
+//         <script>
+//             alert('Item is already added in the cart');
+//             window.location.href='../shop.php';
+//         </script>";
+//     }
+// }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     //add yo cart
@@ -51,6 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+    //remove item from cart
+    
     //set quantity in session
     if (isset($_POST['Mode_Quantity'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
@@ -68,7 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity_Check_Out'];
                 foreach ($_SESSION['cart'] as $key => $value) {
                     $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
-                    // $_SESSION['cart'][$key]['Item_total_Quantity'] = 0;
                 }
                 echo "<script>
                         window.location.href='../checkout.php';
