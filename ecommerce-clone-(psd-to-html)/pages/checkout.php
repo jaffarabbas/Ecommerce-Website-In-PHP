@@ -44,7 +44,7 @@ foreach ($result as $value) {
                 <div class="col-md-12">
                     <?php
                     if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $value) { print_r($value)?>
+                        foreach ($_SESSION['cart'] as $key => $value) {?>
                             <div class="checkOutRow row">
                                 <div class="col-md-6">
                                     <div class="checkOutinfo">
@@ -70,7 +70,7 @@ foreach ($result as $value) {
                                     </div>
                                     <div class="dfco">
                                         <form action='./backend/manageCart.php' method='POST'>
-                                            <button class="delbtn" type="submit" name='Remove_Item'><i class="removeFromCart fa fa-trash"></i></button>
+                                            <button class="delbtn" type="submit" name='Remove_Item_From_Cart'><i class="removeFromCart fa fa-trash"></i></button>
                                             <input type='hidden' name='Item_id' value="<?php echo $value['Item_id'] ?>">
                                         </form>
                                     </div>
@@ -109,9 +109,9 @@ foreach ($result as $value) {
                                         <div class="th">Tax</div>
                                     </div>
                                     <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p id="grandTotal"></p>
-                                    <input type="hidden" id="gtprice" name="grandTotalPrice">
-                                    <input type="hidden" id="tprice" name="totalPricePerItem">
+                                    <p class="th2" id="grandTotal"></p>
+                                    <!-- <input type="hidden" id="gtprice" name="grandTotalPrice">
+                                    <input type="hidden" id="tprice" name="totalPricePerItem"> -->
                                     <div class="th2"><?php echo $tax ?> Rs</div>
                                     </div>
                                 </div>
