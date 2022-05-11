@@ -34,7 +34,7 @@ session_start();
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="navigation">
                     <ul class="nav navbar-nav">
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="">Home</a></li>
                         <li><a href="aboutus.php">About Us</a></li>
                         <li><a href="shop.php">Shop</a></li>
                         <li><a href="contactus.php">ContactUs</a></li>
