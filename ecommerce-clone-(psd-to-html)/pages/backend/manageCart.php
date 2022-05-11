@@ -37,7 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
     //remove item from cart
-    
+    if (isset($_POST['Remove_Item_From_Cart'])) {
+        foreach ($_SESSION['cart'] as $key => $value) {
+            if ($value['Item_id'] == $_POST['Item_id']) {
+
+                unset($_SESSION['cart'][$key]);
+                $_SESSION['cart'] = array_values($_SESSION['cart']);
+                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$checkoutPage),Messages::$removedFromCart);
+            }
+        }
+    }
     //set quantity in session
     if (isset($_POST['Mode_Quantity'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
