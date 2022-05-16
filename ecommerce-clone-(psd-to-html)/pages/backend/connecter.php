@@ -1,8 +1,11 @@
 <?php 
-include_once("dbOperations.php");
-include_once("queries.php");
-include_once("validation.php");
-include_once("methods.php");
+include("dbOperations.php");
+include("queries.php");
+include("validation.php");
+include("methods.php");
+include("routes.php");
+include("keywords.php");
 
 $operations = new DbOperations();
+error_reporting(E_ERROR | E_PARSE);
 ?>
