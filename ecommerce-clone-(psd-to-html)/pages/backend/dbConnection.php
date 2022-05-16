@@ -6,7 +6,7 @@ class DbConnection
 	private $_password = '';
 	private $_database = 'db_jewelsite';
 	
-	protected $connection;
+	public $connection;
 	
 	public function __construct()
 	{
