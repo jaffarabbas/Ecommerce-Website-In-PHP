@@ -8,6 +8,9 @@ class Validation
 		-4 => 'Should have special characters',
 		-5 => 'Should have atleast 8 characters',
 	);
+
+	public static $extension = array('jpeg', 'jpg', 'png', 'gif');
+
 	public function validate($data)
 	{
 		$data = trim($data);
@@ -61,11 +64,11 @@ class Validation
 
 	public function isNumber($number)
 	{
-		return preg_match('~[0-9]+~', $number) && strlen($number) == 11? true : false;
+		return preg_match('~[0-9]+~', $number) && strlen($number) == 11 ? true : false;
 	}
 
-	public function decryptPassowrd($password,$hasedpassowrd)
+	public function decryptPassowrd($password, $hasedpassowrd)
 	{
-		return password_verify($password,$hasedpassowrd);
+		return password_verify($password, $hasedpassowrd);
 	}
 }
