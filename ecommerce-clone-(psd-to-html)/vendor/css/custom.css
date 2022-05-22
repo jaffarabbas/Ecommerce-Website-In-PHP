@@ -69,9 +69,27 @@ p {
     color: #fff;
 }
 
+#productTable a {
+    position: relative;
+}
+
+#contactTable a {
+    position: relative;
+}
+
 .btnStyle {
     color: #fff !important;
     background-color: #b0a171;
+    padding: 10px 20px;
+    margin-top: 10px;
+    position: absolute;
+    border: none;
+    text-decoration: none !important;
+}
+
+.btnStyleDelete {
+    color: #fff !important;
+    background-color: #dd3c3c;
     padding: 10px 20px;
     margin-top: 10px;
     position: absolute;
@@ -83,6 +101,14 @@ p {
     background-color: transparent !important;
     color: #b0a171 !important;
     border: 2px solid #b0a171;
+    padding: 10px 20px;
+    text-decoration: none !important;
+}
+
+.btnStyleDelete:hover {
+    background-color: transparent !important;
+    color: #dd3c3c !important;
+    border: 2px solid #dd3c3c;
     padding: 10px 20px;
     text-decoration: none !important;
 }
