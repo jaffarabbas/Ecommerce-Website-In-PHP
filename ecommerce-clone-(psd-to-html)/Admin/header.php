@@ -14,7 +14,7 @@
     <link href="../vendor/css/custom.css" rel="stylesheet" />
     <link href="../vendor/css/font-awesome.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
 
 </head>
 
@@ -50,13 +50,13 @@
                         <a href="insert_products.php"><i class="fa fa-shopping-cart fa-3x"></i>Insert Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-table fa-3x"></i>View Products<span class="fa arrow"></span></a>
+                        <a href="view_products.php"><i class="fa fa-table fa-3x"></i>View Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
                         <a><i class="fa fa-user fa-3x"></i>View Orders<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-inbox fa-3x"></i>View Contact<span class="fa arrow"></span></a>
+                        <a href="view_contacts.php"><i class="fa fa-inbox fa-3x"></i>View Contact<span class="fa arrow"></span></a>
                     </li>
                     <li>
                         <a><i class="fa fa-globe fa-3x"></i>Settings<span class="fa arrow"></span></a>
@@ -80,17 +80,17 @@
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="../vendor/js/jquery-1.10.2.js"></script>
 <script src="../vendor/js/jquery.metisMenu.js"></script>
-<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="../vendor/js/custom.js"></script>
 
 
 <script>
     $(document).ready(function() {
-        $('#myTable').DataTable();
+        $('#productTable').DataTable();
     });
     $(document).ready(function() {
-        $('#myTable2').DataTable();
+        $('#contactTable').DataTable();
     });
     $(document).ready(function() {
         $('#myTable3').DataTable();
