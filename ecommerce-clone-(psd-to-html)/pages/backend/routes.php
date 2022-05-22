@@ -29,7 +29,9 @@ class Routes{
     public static string $loginBackend = "backend/login_backend.php";
     public static string $signupBackend = "backend/signup_backend.php";
     public static string $contactBackend = "backend/contact_backend.php";
-
+    //folders
+    public static string $imagesFolder = "images/";
+    public static string $backendImageToShop = "Admin/images/";
     //route parameters
     public static string $parameterSingleDot = "./";
     public static string $parameterDoubleDot = "../";
