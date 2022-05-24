@@ -77,6 +77,10 @@ p {
     position: relative;
 }
 
+#modelBtn button {
+    position: relative;
+}
+
 .btnStyle {
     color: #fff !important;
     background-color: #b0a171;
