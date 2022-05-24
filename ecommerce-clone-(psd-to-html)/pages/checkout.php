@@ -131,7 +131,7 @@ foreach ($result as $value) {
                                 </div>
                                 <div class="chr row">
                                     <div class="col-md-12">
-                                        <a href="" class="btnStyle">Check Out</a>
+                                        <a href="./backend/checkout_backend.php" class="btnStyle">Check Out</a>
                                     </div>
                                 </div>
                                 <div class="chr row">
