@@ -14,7 +14,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
         unset($_SESSION['error']);
     } elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
         echo $_SESSION['success'];
-        unset($_SESSION['success']);
+        unset($_SESSION['success']);   
     }
     ?>
     <form action="./backend/insert_product_backend.php" method="POST" enctype="multipart/form-data">
