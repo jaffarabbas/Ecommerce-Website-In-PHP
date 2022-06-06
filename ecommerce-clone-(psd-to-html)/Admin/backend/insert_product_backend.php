@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $statement = $operations->queryStatement(Queries::$insertProduct);
             if ($statement) {
                 $imgString = '["'.implode('","',$imageArray).'"]';
-                mysqli_stmt_bind_param($statement, "ssdsii", $name, $description, $price,$imgString,$quantity, $categories);
+                mysqli_stmt_bind_param($statement, "ssdsii", $name, $description, $price, $imgString, $quantity, $categories);
                 $result = mysqli_stmt_execute($statement);
                 if ($result) {
                     $_SESSION['success'] = Component::successAlert("Success Message", "Product Inserted Successfully");
