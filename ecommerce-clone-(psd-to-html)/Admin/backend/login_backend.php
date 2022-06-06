@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 while ($row = $result->fetch_object()) {
                     $results[] = $row;
                 }
+               try{
                 if (count($results) > 0) {
                     $_SESSION['admin'][0] = array(
                         'id' => $results[0]->id,
@@ -33,6 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     $_SESSION['error'] = Component::dangerAlert("validation Message", "Something went wrong");
                     Component::navigator("../login.php");
                 }
+               }catch(Exception $error){
+                $_SESSION['error'] = Component::dangerAlert("validation Message", "Something went wrong");
+                Component::navigator("../login.php");
+               }
             }
         } else {
             $_SESSION['error'] = Component::dangerAlert("validation Message", "Something went wrong");
