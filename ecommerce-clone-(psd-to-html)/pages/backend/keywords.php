@@ -9,4 +9,14 @@ class Messages{
 class ValidationMessages{
     
 }
+
+class table{
+    public static string $products = "products";
+    public static string $categories = "categories";
+    public static string $users = "users";
+    public static string $orders = "orders";
+    public static string $order_items = "order_items";
+    public static string $cart = "cart";
+    public static string $keywords = "keywords";
+}
 ?>
