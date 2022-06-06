@@ -13,8 +13,9 @@ class Queries{
     public static string $getAdmin = "SELECT * FROM admin WHERE name=? AND password=?";
     public static string $insertProduct = "INSERT INTO `products`(`name`, `description`, `price`, `image`, `quantity`, `cid`) VALUES (?,?,?,?,?,?)";
     public static string $getAllCategories = "SELECT * FROM `categories`";
-    public static string $getAllProducts = "SELECT `pid`, `name`, `description`, `price`, JSON_EXTRACT(image,'$[0]') as fimage, `quantity`, `cid` FROM `products` ORDER BY cid";
+    public static string $getAllProducts = "SELECT `pid`, `name`, `description`, `price`, JSON_EXTRACT(image,'$[0]') as fimage, `quantity`, `cid` , `status` FROM `products` ORDER BY cid";
     public static string $getAllContact = "SELECT * FROM `contact`";
-    public static string $updateProducts = "UPDATE `products` SET `pid`=?,`name`=?,`description`=?,`price`=?,`image`=?,`quantity`=?,`cid`=? WHERE pid = ";
+    public static string $updateProducts = "UPDATE `products` SET `name`=?,`description`=?,`price`=?,`image`=?,`quantity`=?,`cid`=? WHERE pid = ?";
+    public static string $deleteProducts = "UPDATE `products` SET `status` = 0 WHERE pid = ?";
 }
 ?>
