@@ -12,7 +12,7 @@ class DbOperations extends DbConnection
 	{		
 		$result = $this->connection->query($query);
 		
-		if ($result == false) {
+		if (!$result) {
 			return false;
 		} 
 		
