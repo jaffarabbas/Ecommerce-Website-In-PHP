@@ -81,12 +81,7 @@ foreach ($result as $value) {
                             <p class="primaryParagraph"><i class="fa fa-truck-moving"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
                             <p class="primaryParagraph"><i class="fa fa-tags"></i>&nbsp;&nbsp;Lorem ipsum dolor, sit amet consectetur</p>
                         </div>
-                        <?php if (isset($_SESSION['user']) && $_SESSION['user'] != "") { ?>
-                            <button name="shopNow" type="submit" class="addIntoCart btnStyle">Shop Now</button>
-                        <?php
-                        } else { ?>
-                            <a href="login.php" class="addIntoCart btnStyle">Shop Now</a>
-                        <?php } ?>
+                        <button name="shopNow" type="submit" class="addIntoCart btnStyle">Shop Now</button>
                     </div>
                     <!-- data from feilds -->
                     <input type="hidden" name="pid" value="<?php echo $id ?>">
