@@ -1047,13 +1047,13 @@ footer .container .row .col-md-12 ul li a i:hover {
     margin-top: 50px;
 }
 
-.chr a {
+.chr input {
     width: 100%;
     text-align: center;
     padding: 15px 0px;
 }
 
-.chr a:hover {
+.chr input:hover {
     width: 100%;
     text-align: center;
     padding: 15px 0px;
