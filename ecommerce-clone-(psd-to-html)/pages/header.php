@@ -19,7 +19,8 @@ session_start();
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -44,24 +45,23 @@ session_start();
                     <li>
                         <?php
                         if (isset($_SESSION['user']) && $_SESSION['user'] != "") { ?>
-                            <form action="./backend/logout.php" method="POST">
-                                <button class="logout" name="logout">
-                                    <i class="fas fa-sign-out-alt"></i>
-                                </button>
-                            </form>
+                        <form action="./backend/logout.php" method="POST">
+                            <button class="logout" name="logout">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </form>
                         <?php } else { ?>
-                            <a href="login.php">
-                                <img src="../vendor/images/userlogo.png" alt="" />
-                            </a>
+                        <a href="login.php">
+                            <img src="../vendor/images/userlogo.png" alt="" />
+                        </a>
                         <?php } ?>
                     </li>
                     <li>
-                        <?php
-                        if (isset($_SESSION['user']) && $_SESSION['user'] != "") { ?>
-                            <a href="cart.php">
-                                <img src="../vendor/images/cartLogo.png" alt="" />
-                            </a>
-                        <?php } ?>
+
+                        <a href="cart.php">
+                            <img src="../vendor/images/cartLogo.png" alt="" />
+                        </a>
+
                     </li>
                 </ul>
             </div>
