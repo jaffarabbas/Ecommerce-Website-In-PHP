@@ -44,7 +44,7 @@ foreach ($result as $value) {
                 <div class="col-md-12">
                     <?php
                     if (isset($_SESSION['cart'])) {
-                        foreach ($_SESSION['cart'] as $key => $value) {?>
+                        foreach ($_SESSION['cart'] as $key => $value) { ?>
                             <div class="checkOutRow row">
                                 <div class="col-md-6">
                                     <div class="checkOutinfo">
@@ -65,7 +65,7 @@ foreach ($result as $value) {
                                         </form>
                                     </div>
                                     <div class="money">
-                                        <p><?php echo $value['Item_Price'] ?> Rs</p><input type='hidden' class='iprice' value='<?php echo $value['Item_Price'] ?>'/>
+                                        <p><?php echo $value['Item_Price'] ?> Rs</p><input type='hidden' class='iprice' value='<?php echo $value['Item_Price'] ?>' />
                                         <p id="ctprice" class="totalPriceCart"></p>
                                     </div>
                                     <div class="dfco">
@@ -92,7 +92,8 @@ foreach ($result as $value) {
                     <div class="checkOutbottom row">
                         <div class="cobc1 col-md-6">
                             <h3>Checkout Summery</h3>
-                            <p class="primaryParagraph">Lorem ipsum dolor sit amet,Lorem ipsumdolor sit amet Lorem ipsum dolor sit amet,Lorem ipsumdolor sit amet Lorem ipsum dolor sit amet,</p>
+                            <p class="primaryParagraph">Lorem ipsum dolor sit amet,Lorem ipsumdolor sit amet Lorem ipsum
+                                dolor sit amet,Lorem ipsumdolor sit amet Lorem ipsum dolor sit amet,</p>
                             <p class="copanh">Have a copan code ? </p>
                             <div class="contactfeilds">
                                 <form>
@@ -102,44 +103,46 @@ foreach ($result as $value) {
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="totalPrice">
-                                <div class="thp row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="th">Sub total</div>
-                                        <div class="th">Tax</div>
+                            <form action="./backend/manageCart.php" method="POST">
+                                <div class="totalPrice">
+                                    <div class="thp row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="th">Sub total</div>
+                                            <div class="th">Tax</div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <p class="th2" id="grandTotal"></p>
+                                            <input type='hidden' id='grandTotalInput' name='grandTotal' />
+                                            <div class="th2"><?php echo $tax ?> Rs</div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                    <p class="th2" id="grandTotal"></p>
-                                    <!-- <input type="hidden" id="gtprice" name="grandTotalPrice">
-                                    <input type="hidden" id="tprice" name="totalPricePerItem"> -->
-                                    <div class="th2"><?php echo $tax ?> Rs</div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="divider"></div>
+                                        </div>
+                                    </div>
+                                    <div class="thp row">
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div class="th">Total</div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6">
+                                            <div id="totalPriceWithTax" class="th2"></div>
+                                            <input type="hidden" value="<?php echo $tax ?>" id="totalPriceWithTaxPicker" name="totalPriceWithTaxPicker">
+                                            <input type="hidden" id="finalTotalPrice" name="finalTotalPrice">
+                                        </div>
+                                    </div>
+                                    <div class="chr row">
+                                        <div class="col-md-12">
+                                            <input onclick="getPricesForPayement()" type="submit" class="btnStyle" name="Check_Out" value="Check Out">
+                                        </div>
+                                    </div>
+                                    <div class="chr row">
+                                        <div class="chrh col-md-12 text-center">
+                                            <a href="" class="chra">Continue Shopping</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="divider"></div>
-                                    </div>
-                                </div>
-                                <div class="thp row">
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div class="th">Total</div>
-                                    </div>
-                                    <div class="col-md-6 col-sm-6 col-xs-6">
-                                        <div id="totalPriceWithTax" class="th2"></div>
-                                        <input type="hidden" value="<?php echo $tax ?>" id="totalPriceWithTaxPicker">
-                                    </div>
-                                </div>
-                                <div class="chr row">
-                                    <div class="col-md-12">
-                                        <a href="./backend/checkout_backend.php" class="btnStyle">Check Out</a>
-                                    </div>
-                                </div>
-                                <div class="chr row">
-                                    <div class="chrh col-md-12 text-center">
-                                        <a href="" class="chra">Continue Shopping</a>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
