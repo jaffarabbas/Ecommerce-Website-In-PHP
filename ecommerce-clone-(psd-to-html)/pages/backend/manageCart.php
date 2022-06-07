@@ -12,17 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //item in array
             $item_array = array_column($_SESSION['cart'], 'Item_id');
             if (in_array($_POST['pid'], $item_array)) {
-                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$cartPage),Messages::$alreadyInCart);
+                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$cartPage), Messages::$alreadyInCart);
             } else {
                 //add new item to session array
                 $count_cart_index = count($_SESSION['cart']);
-                $_SESSION['cart'][$count_cart_index] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'],'Item_Description' => $_POST['description'] ,'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'],'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
-                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$cartPage),Messages::$addedToCart);
+                $_SESSION['cart'][$count_cart_index] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'], 'Item_Description' => $_POST['description'], 'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'], 'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
+                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$cartPage), Messages::$addedToCart);
             }
         } else {
             //add first item to session array
-            $_SESSION['cart'][0] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'],'Item_Description' => $_POST['description'] ,'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'],'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
-            Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$cartPage),Messages::$addedToCart);
+            $_SESSION['cart'][0] = array('Item_id' => $_POST['pid'], 'Item_Name' => $_POST['name'], 'Item_Description' => $_POST['description'], 'Item_Price' => $_POST['price'], 'Item_Quantity' => $_POST['quantity'], 'Item_Image' => $_POST['image'], 'Item_cid' => $_POST['cid'], 'Item_total_Price' => 0, 'Item_total_Quantity' => 0);
+            Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$cartPage), Messages::$addedToCart);
         }
     }
     //remove from cart
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
-                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$cartPage),Messages::$removedFromCart);
+                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$cartPage), Messages::$removedFromCart);
             }
         }
     }
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 unset($_SESSION['cart'][$key]);
                 $_SESSION['cart'] = array_values($_SESSION['cart']);
-                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$checkoutPage),Messages::$removedFromCart);
+                Component::alertMaker(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$checkoutPage), Messages::$removedFromCart);
             }
         }
     }
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['Item_id'] == $_POST['Item_id']) {
                 $_SESSION['cart'][$key]['Item_Quantity'] = $_POST['Mode_Quantity'];
-                Component::navigator( Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$cartPage));
+                Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$cartPage));
             }
         }
     }
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 foreach ($_SESSION['cart'] as $key => $value) {
                     $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
                 }
-                Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$checkoutPage));
+                Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$checkoutPage));
             }
         }
     }
@@ -73,7 +73,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['cart'][$key]['Item_total_Price'] = $_SESSION['cart'][$key]['Item_Price'] * $_SESSION['cart'][$key]['Item_Quantity'];
             $_SESSION['cart'][$key]['Item_total_Quantity'] = $_POST['grandTotalPrice'];
         }
-        Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot,Routes::$checkoutPage));
+        Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$checkoutPage));
+    }
+    //payment check
+    if (isset($_POST['Check_Out'])) {
+        if (isset($_SESSION['payment_items'])) {
+            $count_cart_index = count($_SESSION['payment_items']);
+            $_SESSION['payment_items'][$count_cart_index] =  array('User_id' => $_SESSION['user'][$key]['id'],'Product_id' => $_SESSION['cart'][$key]['Item_id'],'Quantity' => $_SESSION['cart'][$key]['Item_Quantity']);
+        }else {
+            //add first item to session array
+            $_SESSION['payment_items'][0] = array('User_id' => $_SESSION['user'][0]['id'],'Product_id' => $_SESSION['cart'][0]['Item_id'],'Quantity' => $_SESSION['cart'][0]['Item_Quantity']);
+        }
+        print_r($_SESSION['payment_items']);
     }
 }
 
