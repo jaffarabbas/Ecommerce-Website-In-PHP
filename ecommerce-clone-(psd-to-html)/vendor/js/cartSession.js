@@ -27,4 +27,15 @@ function getPriceValues() {
     gtotal.value = total.innerHTML;
 }
 
+function getPricesForPayement() {
+    var total = document.getElementById('grandTotal');
+    var grandTotalInput = document.getElementById('grandTotalInput');
+    var totalPiceWithTax = document.getElementById("totalPriceWithTax");
+    var finalTotalPrice = document.getElementById("finalTotalPrice");
+
+    grandTotalInput.value = total.innerHTML;
+    finalTotalPrice.value = totalPiceWithTax.innerHTML;
+}
+
 getPriceValues();
+getPricesForPayement();
