@@ -42,7 +42,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
                 echo "<td>" . $value['price'] . "</td>";
                 echo "<td>" . $value['quantity'] . "</td>";
                 echo "<td>" . $value['cid'] . "</td>";
-                echo "<td>". $value['status'] ."</td>";
+                echo "<td>". Component::tick($value['status']) ."</td>";
                 echo "<td><img src='" . json_decode($value['fimage'], true) . "' alt='" . $value['name'] . "' height='50px' width='50px'></td>";
                 echo "<td><a class='btnStyle' href='update_products.php?pid=".$value['pid']."'>Edit</a></td>";
                 echo "<td><a class='btnStyleDelete' href='backend/delete_product_backend.php?id=" . $value['pid'] . "' onclick='return confirm('Are you sure you want to delete this item?');'>Delete</a></td>";
