@@ -40,10 +40,6 @@ class Component
     
     public static function tick($status)
     {
-        if ($status == "1") {
-            return "<i class='fa fa-check-circle' style='color:green;font-size:20px'></i>";
-        } else if ($status == "0") {
-            return "<i class='fa fa-times-circle' style='color:red;font-size:20px'></i>";
-        }
+        return ($status == "1") ? "<i class='fa fa-check-circle' style='color:green;font-size:20px'></i>" : "<i class='fa fa-times-circle' style='color:red;font-size:20px'></i>";
     }
 }
