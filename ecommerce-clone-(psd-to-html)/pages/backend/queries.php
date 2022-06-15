@@ -9,6 +9,7 @@ class Queries{
     public static string $insertUser = "INSERT INTO users (firstname, lastname, email, password, actype, type) VALUES (?,?,?,?,?,?)";
     public static string $getUser = "SELECT id, firstname, lastname, email, password FROM users WHERE email = ?";
     public static string $insertContact = "INSERT INTO contact (name, email ,phone ,address ,message) VALUES (?,?,?,?,?)";
+    public static string $insertUsersOrders = "INSERT INTO `user_orders`(`uid`, `pid`, `quantity`, `total_price`, `total_bill`) VALUES (?,?,?,?,?)";
     //admin
     public static string $getAdmin = "SELECT * FROM admin WHERE name=? AND password=?";
     public static string $insertProduct = "INSERT INTO `products`(`name`, `description`, `price`, `image`, `quantity`, `cid`) VALUES (?,?,?,?,?,?)";
