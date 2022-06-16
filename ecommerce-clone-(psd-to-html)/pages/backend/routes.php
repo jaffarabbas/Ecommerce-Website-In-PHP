@@ -11,6 +11,7 @@ class Routes{
     public static string $aboutPage = "about.php";
     public static string $productDetailsPage = "productDetails.php";
     public static string $cartPage = "cart.php";
+    public static string $paymentPage = "payment_page.php";
     //reusable pages
     public static string $headerPage = "header.php";
     public static string $footerPage = "footer.php";
@@ -29,6 +30,8 @@ class Routes{
     public static string $loginBackend = "backend/login_backend.php";
     public static string $signupBackend = "backend/signup_backend.php";
     public static string $contactBackend = "backend/contact_backend.php";
+    public static string $orderBackend = "backend/order_backend.php";
+
     //folders
     public static string $imagesFolder = "images/";
     public static string $backendImageToShop = "Admin/images/";
