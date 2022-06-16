@@ -56,6 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+
     if (isset($_POST['Mode_Quantity_Check_Out'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
             if ($value['Item_id'] == $_POST['Item_id']) {
@@ -67,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
     }
+
     // set session for checkout
     if (isset($_POST['Add_to_CheckOut'])) {
         foreach ($_SESSION['cart'] as $key => $value) {
@@ -75,16 +77,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$checkoutPage));
     }
-    //payment check
+
+    //order checkout 
     if (isset($_POST['Check_Out'])) {
-        if (isset($_SESSION['payment_items'])) {
-            $count_cart_index = count($_SESSION['payment_items']);
-            $_SESSION['payment_items'][$count_cart_index] =  array('User_id' => $_SESSION['user'][$key]['id'],'Product_id' => $_SESSION['cart'][$key]['Item_id'],'Quantity' => $_SESSION['cart'][$key]['Item_Quantity']);
-        }else {
-            //add first item to session array
-            $_SESSION['payment_items'][0] = array('User_id' => $_SESSION['user'][0]['id'],'Product_id' => $_SESSION['cart'][0]['Item_id'],'Quantity' => $_SESSION['cart'][0]['Item_Quantity']);
+        $totalPrice = $_POST['finalTotalPrice'];
+        foreach ($_SESSION['cart'] as $key => $value) {
+            $_SESSION['order_items'][$key] =  array('user' => $_SESSION['user']['id'], 'Item_id' => $_SESSION['cart'][$key]['Item_id'], 'Item_Quantity' => $_SESSION['cart'][$key]['Item_Quantity'], 'total_price' => $totalPrice);
         }
-        print_r($_SESSION['payment_items']);
+        Component::navigator(Routes::LinkMaker(Routes::$parameterDoubleDot, Routes::$paymentPage));
     }
 }
 
