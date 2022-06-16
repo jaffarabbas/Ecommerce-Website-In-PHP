@@ -24,12 +24,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         if (mysqli_stmt_fetch($statement)) {
                             if ($validation->decryptPassowrd($pass, $password)) {
                                 // this means the password is corrct. Allow user to login
-                                $_SESSION['user'][0] = array(
-                                    'id' => $results[0]->id,
-                                    'firstname' => $results[0]->firstname,
-                                    'lastname' => $results[0]->lastname,
-                                    'email' => $results[0]->email,
-                                );
+                                if(isset($_SESSION['user'])){
+                                    $count_user_index = count($_SESSION['user']);
+                                    $_SESSION['user'][$count_user_index] = array(
+                                        'id' => $id,
+                                        'firstname' => $firstname,
+                                        'lastname' => $lastname,
+                                        'email' => $email,
+                                    );
+                                }else{
+                                    $_SESSION['user'][0] = array(
+                                        'id' => $id,
+                                        'firstname' => $firstname,
+                                        'lastname' => $lastname,
+                                        'email' => $email,
+                                    );
+                                }
                                 $_SESSION['success'] = Component::successAlert("Success Message", "Hii " . $email . " You have successfully login");
                                 Component::navigator("../index.php");
                             } else {
