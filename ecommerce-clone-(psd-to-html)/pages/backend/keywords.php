@@ -4,6 +4,8 @@ class Messages{
     public static string $alreadyInCart = "Item is already added in the cart";
     public static string $removedFromCart = "Removed from cart";
     public static string $logout = "Do you want to logout";
+    public static string $orderSuccess = "Order Successfullt Placed";
+    public static string $orderError = "There is an error in Order Placement";
 }
 
 class ValidationMessages{
