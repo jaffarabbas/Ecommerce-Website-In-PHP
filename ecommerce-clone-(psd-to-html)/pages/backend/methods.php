@@ -42,4 +42,10 @@ class Component
     {
         return ($status == "1") ? "<i class='fa fa-check-circle' style='color:green;font-size:20px'></i>" : "<i class='fa fa-times-circle' style='color:red;font-size:20px'></i>";
     }
+
+    //sub string to double
+    public static function subStringToDouble($string)
+    {
+        return floatval(explode(" ",$string)[0]);
+    }
 }
