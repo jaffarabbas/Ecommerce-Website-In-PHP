@@ -39,9 +39,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
 <?php include("footer.php") ?>
 <?php
 } else {
-    echo "
-<script>
-    window.location.href='login.php';
-</script>";
+    Component::navigator("login.php");
 }
 ?>
