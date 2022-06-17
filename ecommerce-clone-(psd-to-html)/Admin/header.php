@@ -44,7 +44,7 @@
                         <img src='<?php echo $_SESSION['admin'][0]['image'] ?>' class='user-image img-responsive' style=' border-radius: 50%;' />
                     </li>
                     <li>
-                        <a class="active-menu"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a href="index.php" class="active-menu"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="insert_products.php"><i class="fa fa-shopping-cart fa-3x"></i>Insert Products<span class="fa arrow"></span></a>
@@ -53,7 +53,7 @@
                         <a href="view_products.php"><i class="fa fa-table fa-3x"></i>View Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a><i class="fa fa-user fa-3x"></i>View Orders<span class="fa arrow"></span></a>
+                        <a  href="view_orders.php"><i class="fa fa-user fa-3x"></i>View Orders<span class="fa arrow"></span></a>
                     </li>
                     <li>
                         <a href="view_contacts.php"><i class="fa fa-inbox fa-3x"></i>View Contact<span class="fa arrow"></span></a>
@@ -93,7 +93,7 @@
         $('#contactTable').DataTable();
     });
     $(document).ready(function() {
-        $('#myTable3').DataTable();
+        $('#orderTable').DataTable();
     });
     $(document).ready(function() {
         $('#myTable4').DataTable();
