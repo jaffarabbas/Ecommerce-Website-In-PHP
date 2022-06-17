@@ -104,6 +104,47 @@ foreach ($result as $value) {
                         </div>
                         <div class="col-md-6">
                             <form action="./backend/manageCart.php" method="POST">
+                                <?php if ($_SESSION['user'] == null) { 
+                                    
+                                    if (isset($_SESSION['error']) && $_SESSION['error'] != "") {
+                                        echo $_SESSION['error'];
+                                        unset($_SESSION['error']);
+                                    }elseif(isset($_SESSION['success']) && $_SESSION['success'] != ""){
+                                        echo $_SESSION['success'];
+                                        unset($_SESSION['success']);
+                                    }?>
+                                    
+                                    <h1 class="primaryHeading text-center">Order Form</h1>
+                                    <div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="name">Name</label>
+                                                    <input type="text" class="contactInput" name="name" placeholder="Enter name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" class="contactInput" name="email" placeholder="Enter email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone</label>
+                                                    <input type="text" class="contactInput" name="phone" placeholder="Enter phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="address">Address</label>
+                                                    <input type="text" class="contactInput" name="address" placeholder="Enter address">
+                                                </div>
+                                            </div>
+                                    </div>
+                                <?php } ?>
                                 <div class="totalPrice">
                                     <div class="thp row">
                                         <div class="col-md-6 col-sm-6 col-xs-6">
