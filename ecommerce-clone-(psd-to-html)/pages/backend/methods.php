@@ -1,5 +1,4 @@
 <?php
-
 class Component
 {
     public static function alertMaker($url, $message)
@@ -47,5 +46,18 @@ class Component
     public static function subStringToDouble($string)
     {
         return floatval(explode(" ",$string)[0]);
+    }
+
+    //user token generater with alphanumeric characters
+    public static function tokenGenerator()
+    {
+        $length = Settings::$tokenLength;
+        $token = "";
+        $characters = array_merge(range('a', 'z'), range('A', 'Z'), range('0', '9'));
+        $max = count($characters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $token .= $characters[mt_rand(0, $max)];
+        }
+        return $token;
     }
 }
