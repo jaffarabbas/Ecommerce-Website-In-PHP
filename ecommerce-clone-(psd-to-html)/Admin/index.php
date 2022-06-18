@@ -117,7 +117,10 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
                     </div>
                 </div>
             </div>
+
+            <?php include("data_visualization.php") ?>
         </div>
+
         <?php include("footer.php") ?>
     <?php
 } else {
