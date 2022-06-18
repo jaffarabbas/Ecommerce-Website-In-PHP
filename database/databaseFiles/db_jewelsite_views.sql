@@ -13,3 +13,6 @@ select * from show_user_order_all_data;
 SELECT COUNT(*) as 'active products' FROM products WHERE status = 1;
 SELECT COUNT(*) as 'active users' FROM users WHERE status = 1;
 select TAX from setting
+
+
+select sum(total_price) from user_orders
