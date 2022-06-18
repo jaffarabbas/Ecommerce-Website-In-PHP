@@ -35,4 +35,8 @@ class Queries{
     public static string $getTotalActiveUsers = "SELECT COUNT(*) as 'activeUsers' FROM users WHERE status = 1";
     public static string $getTotalInactiveUsers = "SELECT COUNT(*) as 'inactiveUsers' FROM users WHERE status = 0";
     public static string $getTax = "SELECT `TAX` FROM `setting`";
+    //admin grpgh query
+    public static string $DougnetProductByCategories = "SELECT sum(price) as 'prsum' from products group by cid";
+    public static string $CountTotalProductsByCategories="SELECT count(price) as 'countProduct' from products group by cid";
+    public static string $CountSumOfQuantityProductsByCategories="select sum(quantity) as 'countQuantity' from products group by cid";
 }
