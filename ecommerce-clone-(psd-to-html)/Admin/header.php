@@ -53,7 +53,10 @@
                         <a href="view_products.php"><i class="fa fa-table fa-3x"></i>View Products<span class="fa arrow"></span></a>
                     </li>
                     <li>
-                        <a  href="view_orders.php"><i class="fa fa-user fa-3x"></i>View Orders<span class="fa arrow"></span></a>
+                        <a  href="view_orders.php"><i class="fa fa-shopping-cart fa-3x"></i>View Orders<span class="fa arrow"></span></a>
+                    </li>
+                    <li>
+                        <a  href="view_temp_order.php"><i class="fa fa-shopping-cart fa-3x"></i>View Temp Orders<span class="fa arrow"></span></a>
                     </li>
                     <li>
                         <a href="view_contacts.php"><i class="fa fa-inbox fa-3x"></i>View Contact<span class="fa arrow"></span></a>
