@@ -2,45 +2,45 @@
 
 class Routes{
     //core pages
-    public static string $indexPage = "index.php";
-    public static string $loginPage = "login.php";
-    public static string $signupPage = "signup.php";
-    public static string $shopPage = "shop.php";
-    public static string $checkoutPage = "checkout.php";
-    public static string $contactPage = "contact.php";
-    public static string $aboutPage = "about.php";
-    public static string $productDetailsPage = "productDetails.php";
-    public static string $cartPage = "cart.php";
-    public static string $paymentPage = "payment_page.php";
+    public static $indexPage = "index.php";
+    public static $loginPage = "login.php";
+    public static $signupPage = "signup.php";
+    public static $shopPage = "shop.php";
+    public static $checkoutPage = "checkout.php";
+    public static $contactPage = "contact.php";
+    public static $aboutPage = "about.php";
+    public static $productDetailsPage = "productDetails.php";
+    public static $cartPage = "cart.php";
+    public static $paymentPage = "payment_page.php";
     //reusable pages
-    public static string $headerPage = "header.php";
-    public static string $footerPage = "footer.php";
-    public static string $styleCdnPage = "styleCdn.php";
-    public static string $jsCdnPage = "jsCdn.php";
+    public static $headerPage = "header.php";
+    public static $footerPage = "footer.php";
+    public static $styleCdnPage = "styleCdn.php";
+    public static $jsCdnPage = "jsCdn.php";
     //backend pages
-    public static string $connecterPage = "backend/connecter.php";
-    public static string $dbConnectionPage = "backend/dbConnection.php";
-    public static string $dbOperationPage = "backend/dbOperations.php";
-    public static string $dbQueryPage = "backend/queries.php";
-    public static string $routes = "backend/routes.php";
-    public static string $keywords = "backend/keywords.php";
-    public static string $validation = "backend/validation.php";
-    public static string $methods = "backend/methods.php";
-    public static string $manageCart = "backend/manageCart.php";
-    public static string $loginBackend = "backend/login_backend.php";
-    public static string $signupBackend = "backend/signup_backend.php";
-    public static string $contactBackend = "backend/contact_backend.php";
-    public static string $orderBackend = "backend/order_backend.php";
+    public static $connecterPage = "backend/connecter.php";
+    public static $dbConnectionPage = "backend/dbConnection.php";
+    public static $dbOperationPage = "backend/dbOperations.php";
+    public static $dbQueryPage = "backend/queries.php";
+    public static $routes = "backend/routes.php";
+    public static $keywords = "backend/keywords.php";
+    public static $validation = "backend/validation.php";
+    public static $methods = "backend/methods.php";
+    public static $manageCart = "backend/manageCart.php";
+    public static $loginBackend = "backend/login_backend.php";
+    public static $signupBackend = "backend/signup_backend.php";
+    public static $contactBackend = "backend/contact_backend.php";
+    public static $orderBackend = "backend/order_backend.php";
 
     //folders
-    public static string $imagesFolder = "images/";
-    public static string $backendImageToShop = "Admin/images/";
+    public static $imagesFolder = "images/";
+    public static $backendImageToShop = "Admin/images/";
     //route parameters
-    public static string $parameterSingleDot = "./";
-    public static string $parameterDoubleDot = "../";
-    public static string $parameterFromPage = "page";
-    public static string $parameterFromAdmin = "Admin";
-    public static string $parameterFromVendor = "vendor";
+    public static $parameterSingleDot = "./";
+    public static $parameterDoubleDot = "../";
+    public static $parameterFromPage = "page";
+    public static $parameterFromAdmin = "Admin";
+    public static $parameterFromVendor = "vendor";
 
     public static function LinkMaker($parameter,$route){
         return $parameter.$route;
