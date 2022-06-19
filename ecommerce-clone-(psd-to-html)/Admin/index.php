@@ -14,10 +14,19 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
     $activeCategory = $operations->getData(Queries::$getTotalActiveCategories);
     $InActiveCategory = $operations->getData(Queries::$getTotalInactiveCategories);
     $tax = $operations->getData(Queries::$getTax);
-    ?>
+?>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <?php include("header.php") ?>
     <div class="container">
+        <?php
+        if (isset($_SESSION['error']) && $_SESSION['error'] != "") {
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+        } elseif (isset($_SESSION['success']) && $_SESSION['success'] != "") {
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+        }
+        ?>
         <h1 class="dbheading text-center"><b>DASHBOARD</b></h1>
         <div class="container-fluid">
             <div class="row">
@@ -92,7 +101,7 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] != "") {
                         <span class="count-name">Temp Orders</span>
                     </div>
                 </div>
-                
+
                 <div class="col-md-3">
                     <div class="card-counter primary">
                         <i class="fa fa-bars" aria-hidden="true"></i>
