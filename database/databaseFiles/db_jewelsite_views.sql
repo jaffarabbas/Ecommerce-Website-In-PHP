@@ -10,9 +10,20 @@ FROM user_orders uo
 select * from show_user_order_all_data;
 
 
+CREATE VIEW SHOW_TEMP_USER_ORDER_ALL_DATA
+AS
+SELECT tu.*,p.pid, p.name as 'product name', p.description, p.price, JSON_EXTRACT(p.image,'$[0]') as image, p.quantity 'product quantity', p.status as 'product status', p.created_on, p.cid FROM temp_user_orders tu
+    INNER JOIN products p ON tu.iid = p.pid;
+
+select  * from show_temp_user_order_all_data;
+
 SELECT COUNT(*) as 'active products' FROM products WHERE status = 1;
 SELECT COUNT(*) as 'active users' FROM users WHERE status = 1;
-select TAX from setting
+select TAX from setting;
 
+select total_price as 'order' ,created_at as 'created_at' from user_orders group by created_at;
 
-select sum(total_price) from user_orders
+select sum(total_price) as 'order' ,substring_index(orderat,' ',1) as 'created_at' from temp_user_orders group by orderat;
+
+select sum()
+select * from user_orders
