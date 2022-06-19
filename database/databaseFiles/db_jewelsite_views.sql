@@ -27,3 +27,5 @@ select sum(total_price) as 'order' ,substring_index(orderat,' ',1) as 'created_a
 
 select sum()
 select * from user_orders
+
+select count(*) from user_orders group by created_at
