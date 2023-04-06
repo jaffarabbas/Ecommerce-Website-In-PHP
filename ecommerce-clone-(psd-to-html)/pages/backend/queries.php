@@ -1,5 +1,6 @@
-<?php 
-class Queries{
+<?php
+class Queries
+{
     public static $getAllProductsByCategories = "SELECT `pid`, `name`, `description`, `price`, JSON_EXTRACT(image,'$[0]') as fimage, `quantity`, `cid` FROM `products` WHERE status = 1 HAVING `cid` =";
     public static $getProductByPId = "SELECT `pid`, `name`, `description`, `price`, `image` , `quantity`, `cid` FROM `products` WHERE status = 1 HAVING `pid` = ";
     public static $getTextFromSetting = "SELECT `TAX` FROM `setting`";
@@ -36,10 +37,10 @@ class Queries{
     public static $getTotalActiveUsers = "SELECT COUNT(*) as 'activeUsers' FROM users WHERE status = 1";
     public static $getTotalInactiveUsers = "SELECT COUNT(*) as 'inactiveUsers' FROM users WHERE status = 0";
     public static $getTax = "SELECT `TAX` FROM `setting`";
-    //admin grpgh query
+    //admin grapgh query
     public static $DougnetProductByCategories = "SELECT sum(price) as 'prsum' from products group by cid";
-    public static $CountTotalProductsByCategories="SELECT count(price) as 'countProduct' from products group by cid";
-    public static $CountSumOfQuantityProductsByCategories="select sum(quantity) as 'countQuantity' from products group by cid";
+    public static $CountTotalProductsByCategories = "SELECT count(price) as 'countProduct' from products group by cid";
+    public static $CountSumOfQuantityProductsByCategories = "select sum(quantity) as 'countQuantity' from products group by cid";
     public static $LineGrapghOfOrder = "SELECT total_price as 'order' ,substring_index(created_at,' ',1) as created_at from user_orders group by created_at;";
     public static $LineGrapghOfTempOrder = "SELECT total_price as 'order' ,substring_index(orderat,' ',1) as created_at from temp_user_orders group by orderat";
 }
